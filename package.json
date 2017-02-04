@@ -17,8 +17,10 @@
   },
   "homepage": "https://github.com/IvonneK/liri-node-app#readme",
   "dependencies": {
+    "exports": "0.0.1",
     "fs": "0.0.1-security",
     "omdb": "^0.7.0",
+    "readfile": "^1.0.1",
     "request": "^2.79.0",
     "spotify": "^0.3.0",
     "twitter": "^1.7.0"
