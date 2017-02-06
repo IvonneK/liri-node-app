@@ -12,31 +12,40 @@ var spotify = require('spotify');
 var omdb = require('omdb');
 var movie = require('fs');
 var keys = require('./keys.js');
-
-
+var moment = require('moment');
 
 var client = new Twitter(keys.twitterKey);
-console.log (client);
 
 // used to check variables
 // for (var key in client) {
 // 	console.log(key + ': ' + client[key]);
 // }
-var params = {q: 'IvonneKomis',
-                statuses: {
-                  created_at: 'Fri Feb 03',
-                  text: 'front'
-                }
-                };
 
-console.log (params);
-
+var params = {
+              q: 'IvonneKomis',
+              count: 15,
+              since_id: 827428476839923712
+            };
+                
 client.get('search/tweets', params, function(error, tweets, response){
   if (error) {
-    console.log('errro');
     console.log(error);
   }else{
-    console.log(tweets);
+    var arrayTweets = tweets.statuses.length;
+    console.log(arrayTweets);
+    for (var i = 0; i < arrayTweets; i++){
+      var createdDate = moment(tweets.statuses[i].created_at).format('MMMM Do YYYY, h:mm:ss a');
+      var tweetLength = tweets.statuses[i].text.length
+      var dotLine = '•';
+      for (var j = 0; j < tweetLength; j++) {
+        dotLine = dotLine + '•';
+      }
+      console.log(dotLine);
+      console.log(createdDate);
+      console.log(tweets.statuses[i].text);
+      console.log(dotLine);
+      console.log('');
+    };
   };
   
 });
@@ -46,17 +55,17 @@ client.get('search/tweets', params, function(error, tweets, response){
 //   var key = key + ': ' + keyList[key];
 // }
 
-var requestEntered = process.argv;
-var userInput = requestEntered[2];
-var userInput2 = requestEntered[3];
+// var requestEntered = process.argv;
+// var userInput = requestEntered[2];
+// var userInput2 = requestEntered[3];
 
-var ikomisTweets = [];
+// var ikomisTweets = [];
 
-movie.readFile('random.txt', 'utf8', function(err, data){
-  var output = data.split(',');
-    var outputLine = output.join('\n');
-    console.log(outputLine);
-});
+// movie.readFile('random.txt', 'utf8', function(err, data){
+//   var output = data.split(',');
+//     var outputLine = output.join('\n');
+//     console.log(outputLine);
+// });
 
 // my-tweets
 // spotify-this-song
