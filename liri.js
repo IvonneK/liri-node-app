@@ -30,33 +30,31 @@ var client = new Twitter(keys.twitterKey);
 // Tested this works----------------------
 
 // function twitterAPISearch() {
-  // var params = {
-  //               q: 'IvonneKomis',
-  //               count: 15,
-  //               since_id: 827428476839923712
-  //             };
+  var params = {
+                q: 'IvonneKomis',
+                count: 15,
+                since_id: 827428476839923712
+              };
                   
-  // client.get('search/tweets', params, function(error, tweets, response){
-  //   if (error) {
-  //     console.log(error);
-  //   }else{
-  //     var arrayTweets = tweets.statuses.length;
-  //     console.log(arrayTweets);
-  //     for (var i = 0; i < arrayTweets; i++){
-  //       var createdDate = moment(tweets.statuses[i].created_at).format('MMMM Do YYYY, h:mm:ss a');
-  //       var tweetLength = tweets.statuses[i].text.length
-  //       var dotLine = '•';
-  //       for (var j = 0; j < tweetLength; j++) {
-  //         dotLine = dotLine + '•';
-  //       }
-  //       console.log(dotLine);
-  //       console.log(createdDate);
-  //       console.log(tweets.statuses[i].text);
-  //       console.log(dotLine);
-  //       console.log('');
-  //     };
-  //   }; 
-  // });
+  client.get('search/tweets', params, function(error, tweets, response){
+    if (error) {
+      console.log(error);
+    }else{
+      var numTweets = tweets.statuses.length;
+      for (var i = 0; i < numTweets; i++){
+        var createdDate = moment(new Date(tweets.statuses[i].created_at)).format('MMM DD YYYY, HH:mm:ss a');
+        var tweetLength = tweets.statuses[i].text.length
+        var borderLine = '_';
+        for (var j = 0; j < tweetLength; j++) {
+          borderLine = borderLine + '_';
+        }
+        console.log(borderLine + '\n');
+        console.log(createdDate);
+        console.log(tweets.statuses[i].text);
+        console.log(borderLine + '\n');
+      };
+    }; 
+  });
 // };
 
 
@@ -66,7 +64,7 @@ var client = new Twitter(keys.twitterKey);
       if (err) {
           console.log('Error occurred: ' + err);
           return;
-      } 
+      }
       else{
         var songData = data.tracks.items[0];
         var artist = songData.artists[0].name;
@@ -74,18 +72,17 @@ var client = new Twitter(keys.twitterKey);
         var album = songData.album.name;
         var preview = songData.preview_url
         var previewLength = songData.preview_url.length
-        var dotLine = '•';
+        var borderLine = '_';
         for (var j = 0; j < previewLength; j++) {
-          dotLine = dotLine + '•';
-        }
-        console.log(dotLine + '\n');
+          borderLine = borderLine + '_';
+        };
+        console.log(borderLine + '\n');
         console.log('ARTIST/BAND.. ' + artist + '\n');
         console.log('SONG NAME.... ' + song + '\n')
         console.log('ALBUM NAME... ' + album + '\n');
-        console.log('PREVIEW SONG copy/paste URL below into your browser(Chrome, Safari, etc):' + '\n' + preview + '\n')
-        console.log(dotLine+ '\n');
-    };
-
+        console.log('TO PREVIEW SONG copy/paste URL below into your browser(Chrome, Safari, etc):' + '\n' + preview)
+        console.log(borderLine+ '\n');
+      };
   });
 // };
 
