@@ -1,0 +1,8 @@
+
+Enter one of the following liri commands in your terminal command line:To Search on Twitter for my tweets type=>  node liri.js my-tweetsTo Search on Spotify for a Song type=>  node liri.js spotify-this-song +NameOfSongTo Search on omdb for Movie info type=>  node liri.js movie-this +NameOfMovieFOR  random searches type=>  node liri.js do-what-it-says
+
+Enter one of the following liri commands in your terminal command line:
+To Search on Twitter for my tweets type=>  node liri.js my-tweets
+To Search on Spotify for a Song type=>  node liri.js spotify-this-song +NameOfSong
+To Search on omdb for Movie info type=>  node liri.js movie-this +NameOfMovie
+FOR  random searches type=>  node liri.js do-what-it-says

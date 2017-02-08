@@ -10,26 +10,15 @@ var request = require('request');
 var Twitter = require('twitter');
 var spotify = require('spotify');
 var omdb = require('omdb');
-var movie = require('fs');
+var fs = require('fs');
 var keys = require('./keys.js');
 var moment = require('moment');
 
 var client = new Twitter(keys.twitterKey);
-// var spotifyApi = new Spotify(keys.spotifyKey);
-// var SpotifyWebApi = require("../");
-
-// var spotifyApi = new Spotify();
 
 
-// used to check variables
-// for (var key in client) {
-// 	console.log(key + ': ' + client[key]);
-// }
-
-
-// Tested this works----------------------
-
-// function twitterAPISearch() {
+// -----  Access Twitter API to display tweets  -----
+function twitterAPISearch() {
   var params = {
                 q: 'IvonneKomis',
                 count: 15,
@@ -55,12 +44,12 @@ var client = new Twitter(keys.twitterKey);
       };
     }; 
   });
-// };
+};
 
 
-
-// function spotifyAPISearch(var) { 
-  spotify.search({ type: 'track', query: 'vivir mi vida', limit: 1}, function(err, data) {
+-----  Access Spotify API to display Song Data  -----
+function spotifyAPISearch(songName) { 
+  spotify.search({ type: 'track', query: songName, limit: 1}, function(err, data) {
       if (err) {
           console.log('Error occurred: ' + err);
           return;
@@ -84,58 +73,114 @@ var client = new Twitter(keys.twitterKey);
         console.log(borderLine+ '\n');
       };
   });
+};
+
+
+Access omdb API (as of 2/7/17 still not avail)
+function omdbAPISearch(var) {
+  request('http://www.omdbapi.com/?t=the+wizard+of+oz&y=1939&t=movie&plot=short&r=json', function(err, response, body) {
+    console.log(JSON.parse(body).imdbRating);
+      If the request is successful (i.e. if the response status code is 200)
+
+      if (!err) {
+        console.log(body);
+        // Parse the body of the site and recover just the imdbRating
+        (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
+        console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
+      console.log(JSON.parse(body).Title + JSON.parse(body).Year + JSON.parse(body).Country + JSON.parse(body).Language + JSON.parse(body).Plot + JSON.parse(body).Actors);
+        rotten tomatoes rating,rotten tomatoes url);
+      } else {
+        console.log('---------error:'+ err);
+      };
+  });
+};
+
+READ Random.txt File
+function readRandom() {
+  fs.readFile('random.txt', 'utf8', function(err, data){
+    var output = data.split(',');
+    console.log(output[0]);
+    console.log(output[1])
+    var outputLine = output.join('\n');
+    console.log(outputLine);
+  });
+
+
+
+// WRITE(append) to log.txt file 
+  function logFile(logText){
+    fs.appendFileSync("log.txt", logText, encoding='utf8', function(err) {
+        // If an error was experienced we say it.
+        if (err) {
+            console.log(err);
+        } else {
+            // We need to console.log that we saved the info
+            console.log("SAVED to log.txt File");
+        };
+    });
+  };
+
+
+// var ikomisTweets = [];
+// }
+
+
+var liriCommands = ['my-tweets', 'spotify-this-song', 'movie-this', 'do-what-it-says'];
+var writeToLog = '';
+
+// Instructions for the user at terminal
+// function Instructions(){
+  writeToLog = '\n' + 'Enter one of the following liri commands from your terminal command line:' + '\n';
+  writeToLog += 'To Search on Twitter for my tweets enter=>  node liri.js my-tweets' + '\n';
+  writeToLog += '   To Search on Spotify for a Song enter=>  node liri.js spotify-this-song +NameOfSong' + '\n';
+  writeToLog += '  To Search on omdb for Movie info enter=>  node liri.js movie-this +NameOfMovie' + '\n';
+  writeToLog += '              FOR  random searches enter=>  node liri.js do-what-it-says' + '\n';
+  console.log(writeToLog);
+  // logFile(writeToLog);
 // };
 
 
 
-// var requestEntered = process.argv;
-// var userInput = requestEntered[2];
-// var userInput2 = requestEntered[3];
+var userInput = process.argv[2];
+console.log(userInput);
+var userInput2 = process.argv[3];
+console.log(userInput2);
+var requestEntered = process.argv;
+requestLength = requestEntered.length; 
+if (requestLength > 3) {
+ userInput2 = requestEntered.slice(3, (requestLength));
+ userInput2 = userInput2.toString();
+ userInput2 = userInput2.replace(',', '+');
+ console.log(userInput2);
+}
 
-// var ikomisTweets = [];
+// Use the switch option to run the functions
+switch(userInput) {
+  case "my-tweets":
+    twitterAPISearch();
+  break;
+  case "spotify-this-song":
+    if (userInput2 != null || undefined) {
+      console.log(userInput2);
+      spotifyAPISearch(userInput2);
+    }
+  break;
+  case "movie-this":
+    if (userInput2 != null || undefined) {
+      console.log(userInput2);
+      ombdAPISearch(userInput2);
+    }
+  break;
+    case "do-what-it-says":
+      readRandom();
+    }
+  break;
+}
 
-// movie.readFile('random.txt', 'utf8', function(err, data){
-//   var output = data.split(',');
-//     var outputLine = output.join('\n');
-//     console.log(outputLine);
-// });
-
-// my-tweets
-// spotify-this-song
-// "movie-this"
-// "do-what-it-says"
-// // node.liri.js my-tweets
-// // this should show your last 20 tweets
-
-// if (userInput == "my-tweets") {
-//   console.log(userInput);
-  // console.log('my tweets:' + ikomisTweets) 
-// }
-// else if (userInput == "spotify-this-song") {
-//   console.log(userInput + ' ' + userInput2);
-//   readRandom(userInput, userInput2);
-  // console.log(artist + ' ' + songName + ' ' + previewLinkSong 
-    // + ' ' + album);
   // if (err) {
   //   console.log('The Sign by Ace of Base');
   // } 
 // }
-// else if (userInput == "movie-this") {
-//   console.log(userInput + ' ' + userInput2);
-//   request('http://www.omdbapi.com/?t=remember+the+titans&y=&plot=short&r=json', function(error, response, body) {
-
-  // If the request is successful (i.e. if the response status code is 200)
-  // if (response.statusCode === 200) {
-
-    // Parse the body of the site and recover just the imdbRating
-    // (Note: The syntax below for parsing isn't obvious. Just spend a few moments dissecting it).
-  //   console.log("The movie's rating is: " + JSON.parse(body).imdbRating);
-  // console.log(JSON.parse(body).Title + JSON.parse(body).Year + JSON.parse(body).Country + JSON.parse(body).Language + JSON.parse(body).Plot + JSON.parse(body).Actors);
-    // rotten tomatoes rating,rotten tomatoes url);
-//   }
-// });
-
-
 
 
   // if (err) {
@@ -144,29 +189,9 @@ var client = new Twitter(keys.twitterKey);
   // 
 // }
 
-// else if (userInput == "do-what-it-says") {
-//   console.log(userInput);
-// run spotify-this-song will as follows the random.txt  
-//   using fs liri takes text inside random.txt 
-//   then use it to call one of LIRI's commands.
 // It should run spotify-this-song for "I Want it That Way," as follows the text in random.txt.
 // Feel free to change the text in that document to test out the feature for other commands.
 // }
 // else {
 //   console.log("Not a recognized command");
 // }
-
-// spotify.search({ type: 'track', query: 'dancing in the moonlight' }, function(err, data) {
-//     if ( err ) {
-//         console.log('Error occurred: ' + err);
-//         return;
-//     }
- 
-    // Do something with 'data' 
-// });
-
-// In addition to logging the data to your terminal/bash window, output the data to a .txt file called log.txt.
-// Make sure you append each command you run to the log.txt file.
-// Do not overwrite your file each time you run a command.
-
-
