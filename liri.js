@@ -1,10 +1,12 @@
-// Coder: Ivonne Komis
+// Web Developer: Ivonne Komis
+// Written in Javascript 
+// also used Node.js and installed various node packages.
+// 3 API's used: Twitter(social), Spotify(music), omdb(movies)
 // Purpose: use LIRI language interpretation and recognition to send 
 // requests
-// API used: twitter, spotify and IMDB
-// use api keys for twitter from keys.js 
-// tested able to read keys (./ added)
-// turn if statement into functions
+// Got Twitter api keys by reading keys.js
+// used readFile to read random.txt file for liri 
+// used fs.appendFileSync to write to log.txt
 
 var request = require('request');
 var Twitter = require('twitter');
@@ -47,7 +49,7 @@ function twitterAPISearch() {
 };
 
 
------  Access Spotify API to display Song Data  -----
+// -----  Access Spotify API to display Song Data  -----
 function spotifyAPISearch(songName) { 
   spotify.search({ type: 'track', query: songName, limit: 1}, function(err, data) {
       if (err) {
@@ -76,7 +78,7 @@ function spotifyAPISearch(songName) {
 };
 
 
-Access omdb API (as of 2/7/17 still not avail)
+// ---- Access omdb API to display Movie Data (2/8 API down)  ----
 function omdbAPISearch(var) {
   request('http://www.omdbapi.com/?t=the+wizard+of+oz&y=1939&t=movie&plot=short&r=json', function(err, response, body) {
     console.log(JSON.parse(body).imdbRating);
@@ -95,7 +97,8 @@ function omdbAPISearch(var) {
   });
 };
 
-READ Random.txt File
+
+// ----------- READ Random.txt File  ------------
 function readRandom() {
   fs.readFile('random.txt', 'utf8', function(err, data){
     var output = data.split(',');
@@ -104,21 +107,21 @@ function readRandom() {
     var outputLine = output.join('\n');
     console.log(outputLine);
   });
+};
 
 
-
-// WRITE(append) to log.txt file 
-  function logFile(logText){
-    fs.appendFileSync("log.txt", logText, encoding='utf8', function(err) {
-        // If an error was experienced we say it.
-        if (err) {
-            console.log(err);
-        } else {
-            // We need to console.log that we saved the info
-            console.log("SAVED to log.txt File");
-        };
-    });
-  };
+// -----------  WRITE(append) to log.txt file --------- 
+function logFile(logText){
+  fs.appendFileSync("log.txt", logText, encoding='utf8', function(err) {
+      // If an error was experienced we say it.
+      if (err) {
+          console.log(err);
+      } else {
+          // We need to console.log that we saved the info
+          console.log("SAVED to log.txt File");
+      };
+  });
+};
 
 
 // var ikomisTweets = [];
@@ -129,7 +132,7 @@ var liriCommands = ['my-tweets', 'spotify-this-song', 'movie-this', 'do-what-it-
 var writeToLog = '';
 
 // Instructions for the user at terminal
-// function Instructions(){
+function Instructions(){
   writeToLog = '\n' + 'Enter one of the following liri commands from your terminal command line:' + '\n';
   writeToLog += 'To Search on Twitter for my tweets enter=>  node liri.js my-tweets' + '\n';
   writeToLog += '   To Search on Spotify for a Song enter=>  node liri.js spotify-this-song +NameOfSong' + '\n';
@@ -137,8 +140,7 @@ var writeToLog = '';
   writeToLog += '              FOR  random searches enter=>  node liri.js do-what-it-says' + '\n';
   console.log(writeToLog);
   // logFile(writeToLog);
-// };
-
+};
 
 
 var userInput = process.argv[2];
@@ -164,12 +166,14 @@ switch(userInput) {
       console.log(userInput2);
       spotifyAPISearch(userInput2);
     }
+    else {instructions(); };
   break;
   case "movie-this":
     if (userInput2 != null || undefined) {
       console.log(userInput2);
       ombdAPISearch(userInput2);
     }
+    else {instructions(); };
   break;
     case "do-what-it-says":
       readRandom();
