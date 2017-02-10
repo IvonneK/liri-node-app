@@ -12,6 +12,7 @@ var Twitter = require('twitter');
 var spotify = require('spotify');
 var omdb = require('omdb');
 var omdbApi = require('omdb-client');
+var say = require ('say'); 
 var fs = require('fs');
 var keys = require('./keys.js');
 var moment = require('moment');
@@ -20,6 +21,7 @@ var client = new Twitter(keys.twitterKey);
 
 // this instructions function only displays instructions when liri command/syntax is incorrect
 function instructions(){
+	say.speak('Please reed instructions carefully. Example For Spotify, type song name in quotes. Happy Searching!', 'Alex', 1.2);
 	var borderLine = '_';
 	for (var j = 0; j < 100; j++) {
 	  borderLine = borderLine + '_';

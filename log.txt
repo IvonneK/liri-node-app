@@ -121,3 +121,52 @@ ________________________________________________________________________________
 Feb 03 2017, 03:23:33 am
 I'm using GitHub as a repo. Basically I store my code and push my updates out to my repository. It's my production work.
 _________________________________________________________________________________________________________________________
+_____________________________________________________________________________________________________
+PLEASE READ INSTRUCTIONS CAREFULLY WHEN ENTERING liri commands in terminal command line:
+  Search on TWITTER for my TWEETS enter=>  node liri.js my-tweets
+     Search on SPOTIFY for a SONG enter=>  node liri.js spotify-this-song 'in quotes name of song'
+    Search on OMDB for MOVIE info enter=>  node liri.js movie-this 'in quotes movie title'
+                    RANDOM search enter=>  node liri.js do-what-it-says
+_____________________________________________________________________________________________________
+_____________________________________________________________________________________________________
+PLEASE READ INSTRUCTIONS CAREFULLY WHEN ENTERING liri commands in terminal command line:
+  Search on TWITTER for my TWEETS enter=>  node liri.js my-tweets
+     Search on SPOTIFY for a SONG enter=>  node liri.js spotify-this-song 'in quotes name of song'
+    Search on OMDB for MOVIE info enter=>  node liri.js movie-this 'in quotes movie title'
+                    RANDOM search enter=>  node liri.js do-what-it-says
+_____________________________________________________________________________________________________
+_____________________________________________________________________________________________________
+PLEASE READ INSTRUCTIONS CAREFULLY WHEN ENTERING liri commands in terminal command line:
+  Search on TWITTER for my TWEETS enter=>  node liri.js my-tweets
+     Search on SPOTIFY for a SONG enter=>  node liri.js spotify-this-song 'in quotes name of song'
+    Search on OMDB for MOVIE info enter=>  node liri.js movie-this 'in quotes movie title'
+                    RANDOM search enter=>  node liri.js do-what-it-says
+_____________________________________________________________________________________________________
+_____________________________________________________________________________________________________
+PLEASE READ INSTRUCTIONS CAREFULLY WHEN ENTERING liri commands in terminal command line:
+  Search on TWITTER for my TWEETS enter=>  node liri.js my-tweets
+     Search on SPOTIFY for a SONG enter=>  node liri.js spotify-this-song 'in quotes name of song'
+    Search on OMDB for MOVIE info enter=>  node liri.js movie-this 'in quotes movie title'
+                    RANDOM search enter=>  node liri.js do-what-it-says
+_____________________________________________________________________________________________________
+_____________________________________________________________________________________________________
+PLEASE READ INSTRUCTIONS CAREFULLY WHEN ENTERING liri commands in terminal command line:
+  Search on TWITTER for my TWEETS enter=>  node liri.js my-tweets
+     Search on SPOTIFY for a SONG enter=>  node liri.js spotify-this-song 'in quotes name of song'
+    Search on OMDB for MOVIE info enter=>  node liri.js movie-this 'in quotes movie title'
+                    RANDOM search enter=>  node liri.js do-what-it-says
+_____________________________________________________________________________________________________
+_____________________________________________________________________________________________________
+PLEASE READ INSTRUCTIONS CAREFULLY WHEN ENTERING liri commands in terminal command line:
+  Search on TWITTER for my TWEETS enter=>  node liri.js my-tweets
+     Search on SPOTIFY for a SONG enter=>  node liri.js spotify-this-song 'in quotes name of song'
+    Search on OMDB for MOVIE info enter=>  node liri.js movie-this 'in quotes movie title'
+                    RANDOM search enter=>  node liri.js do-what-it-says
+_____________________________________________________________________________________________________
+_____________________________________________________________________________________________________
+PLEASE READ INSTRUCTIONS CAREFULLY WHEN ENTERING liri commands in terminal command line:
+  Search on TWITTER for my TWEETS enter=>  node liri.js my-tweets
+     Search on SPOTIFY for a SONG enter=>  node liri.js spotify-this-song 'in quotes name of song'
+    Search on OMDB for MOVIE info enter=>  node liri.js movie-this 'in quotes movie title'
+                    RANDOM search enter=>  node liri.js do-what-it-says
+_____________________________________________________________________________________________________

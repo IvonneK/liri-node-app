@@ -24,6 +24,7 @@
     "omdb-client": "^1.0.6",
     "readfile": "^1.0.1",
     "request": "^2.79.0",
+    "say": "^0.11.0",
     "spotify": "^0.3.0",
     "twitter": "^1.7.0"
   }
