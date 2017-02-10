@@ -41,7 +41,7 @@ function instructions(){
 function twitterAPISearch() {
   	var params = {
                 	q: 'IvonneKomis',
-                	count: 15,
+                	count: 30,
                 	since_id: 827428476839923712
               	 };              
   	client.get('search/tweets', params, function(error, tweets, response){
