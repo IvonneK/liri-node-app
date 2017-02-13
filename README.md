@@ -9,6 +9,7 @@ The app is used to send requests and get responses fromTwitter, Spotify and OMDB
 ## Technologies Used: 
 - JavaScript 
 - node.js 
+- APIs used twitter(tweets), spotify(music) and omdb(movies)
 - npm packages required:<br>
 request, twitter, spotify, omdb,omdb-client, say, fs, moment
 
@@ -16,8 +17,8 @@ request, twitter, spotify, omdb,omdb-client, say, fs, moment
 * Sublime Text
 
 ## Links: 	
-- https://ivonnek.github.io/liri-node-app/
 - https://github.com/IvonneK/liri-node-app
+- https://ivonnek.github.io/liri-node-app/
 
 ## Author: 
 **Ivonne Komis**<br>
