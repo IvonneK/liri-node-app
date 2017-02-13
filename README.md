@@ -9,16 +9,19 @@ The app is used to send requests and get responses fromTwitter, Spotify and OMDB
 ## Technologies Used: 
 - JavaScript 
 - node.js 
-- APIs used: twitter, spotify and omdb
-- npm packages required:<br>
+- APIs used:<br> 
+**twitter** to search tweets<br> 
+**spotify** to search for music info
+**omdb** to search for movie info
+- npm modules used:<br>
 request, twitter, spotify, omdb,omdb-client, say, fs, moment
 
 ## Built With:
 * Sublime Text
 
 ## Links: 	
-https://github.com/IvonneK/liri-node-app
-https://ivonnek.github.io/liri-node-app/
+- https://github.com/IvonneK/liri-node-app<br>
+- https://ivonnek.github.io/liri-node-app/
 
 ## Author: 
 **Ivonne Komis**<br>
