@@ -9,12 +9,12 @@ The app is used to send requests and get responses fromTwitter, Spotify and OMDB
 ## Technologies Used: 
 - JavaScript 
 - node.js 
-- APIs used:<br> 
-**twitter** to search tweets<br> 
-**spotify** to search for music info
-**omdb** to search for movie info
 - npm modules used:<br>
 request, twitter, spotify, omdb,omdb-client, say, fs, moment
+- APIs used:<br> 
+**twitter** to search tweets<br> 
+**spotify** to search for music info<br>
+**omdb** to search for movie info
 
 ## Built With:
 * Sublime Text
