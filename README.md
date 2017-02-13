@@ -9,7 +9,7 @@ The app is used to send requests and get responses fromTwitter, Spotify and OMDB
 ## Technologies Used: 
 - JavaScript 
 - node.js 
-- APIs used twitter(tweets), spotify(music) and omdb(movies)
+- APIs used: twitter, spotify and omdb
 - npm packages required:<br>
 request, twitter, spotify, omdb,omdb-client, say, fs, moment
 
