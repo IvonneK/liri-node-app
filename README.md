@@ -20,8 +20,8 @@ request, twitter, spotify, omdb,omdb-client, say, fs, moment
 * Sublime Text
 
 ## Links: 	
-- https://github.com/IvonneK/liri-node-app<br>
-- https://ivonnek.github.io/liri-node-app/
+- https://ivonnek.github.io/liri-node-app/<br>
+- https://github.com/IvonneK/liri-node-app
 
 ## Author: 
 **Ivonne Komis**<br>
